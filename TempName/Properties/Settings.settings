@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TempName.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="IsUsingName" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="IsUsingLog" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="RefreshRate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="ServerNameContainsThis" Type="System.String" Scope="User">
+      <Value Profile="(Default)">G-Money</Value>
+    </Setting>
+    <Setting Name="LogFilePathAndName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Log.txt</Value>
+    </Setting>
+    <Setting Name="PlayerName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PlayerName</Value>
+    </Setting>
+    <Setting Name="PlayerUID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PlayerUID</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
