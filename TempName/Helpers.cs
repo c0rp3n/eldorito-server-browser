@@ -16,12 +16,14 @@ namespace TempName
                 Thread.Sleep(1000);
             }
             Console.Clear();
-            for (int i = Settings.TimeOut * 1; i > 0; i--)
-            {
-                Console.WriteLine("Waiting {0} seconds!", i);
-                Thread.Sleep(1000);
-                Console.Clear();
-            }
+
+            if (Settings.TimeOut != 0)
+                for (int i = Settings.TimeOut * 1; i > 0; i--)
+                {
+                    Console.WriteLine("Waiting {0} seconds!", i);
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                }
         }
 
         public static string GetMasterServer()

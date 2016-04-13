@@ -8,6 +8,8 @@ namespace TempName
 {
     class Settings
     {
+        public static WebClient wc = new WebClient();
+
         public static string GetSetting(string Setting)
         {
             var IniFile = new IniFile.IniFile(Settings.IniFile);
@@ -23,6 +25,7 @@ namespace TempName
                     else
                         return IniFile.Read(Setting, "Settings");
 
+                case "IsDEBUG":
                 case "LogEnabled":
                 case "LookForServerEnabled":
                 //case "LookForPlayerEnabled":
@@ -59,7 +62,7 @@ namespace TempName
         public static string IniFile { get; } = "Settings.ini";
 
 
-        public static WebClient wc = new WebClient();
+        public static bool IsDEBUG { get; } = Boolean.Parse(GetSetting("IsDEBUG"));
 
 
         public static bool IsUsingLog { get; set; } = Boolean.Parse(GetSetting("LogEnabled"));

@@ -136,17 +136,35 @@ namespace TempName
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex);
-                        Console.Read();
-                        /*Console.WriteLine(Errors.HostNotConnetMessage + Environment.NewLine);
-                        text.AppendLine(Errors.HostNotConnetMessage + Environment.NewLine);*/
+                        switch (Settings.IsDEBUG.Equals(true))
+                        {
+                            case true:
+                                Console.WriteLine(ex);
+                                Console.Read();
+                                break;
+
+                            case false:
+                                Console.WriteLine(Errors.HostNotConnetMessage + Environment.NewLine);
+                                text.AppendLine(Errors.HostNotConnetMessage + Environment.NewLine);
+                                break;
+                        }
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Console.WriteLine(Errors.MasterServerNotConnetMessage);
-                text.AppendLine(Errors.MasterServerNotConnetMessage);
+                switch (Settings.IsDEBUG.Equals(true))
+                {
+                    case true:
+                        Console.WriteLine(ex);
+                        Console.Read();
+                        break;
+
+                    case false:
+                        Console.WriteLine(Errors.MasterServerNotConnetMessage);
+                        text.AppendLine(Errors.MasterServerNotConnetMessage);
+                        break;
+                }
             }
             finally
             {
