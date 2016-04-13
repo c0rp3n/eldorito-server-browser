@@ -1,5 +1,5 @@
-﻿using Microsoft.CSharp.RuntimeBinder;
-using System;
+﻿using System;
+using System.IO;
 using System.Text;
 
 using Newtonsoft.Json;
@@ -19,8 +19,20 @@ namespace TempName
             }
         }
 
+        private static void Update()
+        {
+            Settings.IsUsingLog = Boolean.Parse(Settings.GetSetting("LogEnabled"));
+            Settings.Log = String.Format("{0}\\{1}", Directory.GetCurrentDirectory(), Settings.GetSetting("LogName"));
+            Settings.TimeOut = Int32.Parse(Settings.GetSetting("TimeOut"));
+            Settings.IsUsingName_Server = Boolean.Parse(Settings.GetSetting("LookForServerEnabled"));
+            Settings.ServerName = Settings.GetSetting("ServerName");
+            Settings.IsPassworded = false;
+        }
+
         private static void CheckServers(StringBuilder text)
         {
+            Update();
+
             try
             {
                 dynamic ServerList = JsonConvert.DeserializeObject(Settings.wc.DownloadString(Settings.MasterServer));
@@ -38,7 +50,7 @@ namespace TempName
                         {
                             if (prop.Name.Equals("passworded"))
                             {
-                                Settings.IsPassword = true;
+                                Settings.IsPassworded = true;
                             }
                         }
 
@@ -54,10 +66,12 @@ namespace TempName
                                     Console.WriteLine(Errors.NoPlayersFoundMessage);
                                     text.AppendLine(Errors.NoPlayersFoundMessage);
                                 }
-                                else if (Settings.IsPassword.Equals(true))
+                                else if (Settings.IsPassworded.Equals(true))
                                 {
                                     Console.WriteLine(Errors.PasswordServerMessage);
                                     text.AppendLine(Errors.PasswordServerMessage);
+
+                                    Settings.IsPassworded = false;
                                 }
                                 else
                                 {
@@ -91,10 +105,12 @@ namespace TempName
                                 Console.WriteLine(Errors.NoPlayersFoundMessage);
                                 text.AppendLine(Errors.NoPlayersFoundMessage);
                             }
-                            else if (Settings.IsPassword.Equals(true))
+                            else if (Settings.IsPassworded.Equals(true))
                             {
                                 Console.WriteLine(Errors.PasswordServerMessage);
                                 text.AppendLine(Errors.PasswordServerMessage);
+
+                                Settings.IsPassworded = false;
                             }
                             else
                             {
