@@ -4,6 +4,8 @@ First off run **TempName.exe** then close it, you will now have **Settings.ini**
 
 [Settings]
 
+IsDEBUG=false
+
 LogEnabled=false
 
 LogName=Log.txt
