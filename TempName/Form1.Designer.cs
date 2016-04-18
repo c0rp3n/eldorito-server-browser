@@ -125,36 +125,36 @@ namespace TempName
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 16);
+            this.label3.Size = new System.Drawing.Size(78, 16);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Sever Name\'s";
+            this.label3.Text = "Sever Name";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(453, 51);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 14);
+            this.label4.Size = new System.Drawing.Size(15, 14);
             this.label4.TabIndex = 9;
-            this.label4.Text = "IP\'s";
+            this.label4.Text = "IP";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(603, 50);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 14);
+            this.label5.Size = new System.Drawing.Size(66, 14);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Player names";
+            this.label5.Text = "Player name";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(768, 50);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 14);
+            this.label6.Size = new System.Drawing.Size(56, 14);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Player UID\'s";
+            this.label6.Text = "Player UID";
             // 
             // menuStrip1
             // 
