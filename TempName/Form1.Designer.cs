@@ -52,7 +52,12 @@ namespace TempName
             // 
             // CheckServers
             // 
-            this.CheckServers.BackColor = System.Drawing.SystemColors.Control;
+            this.CheckServers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(133)))), ((int)(((byte)(181)))));
+            this.CheckServers.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(133)))), ((int)(((byte)(181)))));
+            this.CheckServers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(174)))), ((int)(((byte)(206)))));
+            this.CheckServers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(174)))), ((int)(((byte)(206)))));
+            this.CheckServers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckServers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.CheckServers.Location = new System.Drawing.Point(801, 429);
             this.CheckServers.Name = "CheckServers";
             this.CheckServers.Size = new System.Drawing.Size(121, 25);
@@ -63,47 +68,52 @@ namespace TempName
             // 
             // IP_Address
             // 
+            this.IP_Address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.IP_Address.FormattingEnabled = true;
             this.IP_Address.ItemHeight = 14;
             this.IP_Address.Location = new System.Drawing.Point(453, 72);
             this.IP_Address.Name = "IP_Address";
-            this.IP_Address.Size = new System.Drawing.Size(144, 340);
+            this.IP_Address.Size = new System.Drawing.Size(144, 338);
             this.IP_Address.TabIndex = 2;
             this.IP_Address.SelectedIndexChanged += new System.EventHandler(this.IP_Address_SelectedIndexChanged);
             // 
             // Server_Name
             // 
+            this.Server_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Server_Name.FormattingEnabled = true;
             this.Server_Name.ItemHeight = 14;
             this.Server_Name.Location = new System.Drawing.Point(12, 72);
             this.Server_Name.Name = "Server_Name";
-            this.Server_Name.Size = new System.Drawing.Size(435, 340);
+            this.Server_Name.Size = new System.Drawing.Size(435, 338);
             this.Server_Name.TabIndex = 3;
             this.Server_Name.SelectedIndexChanged += new System.EventHandler(this.Server_Name_SelectedIndexChanged);
             // 
             // UUID
             // 
+            this.UUID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UUID.FormattingEnabled = true;
             this.UUID.ItemHeight = 14;
             this.UUID.Location = new System.Drawing.Point(768, 73);
             this.UUID.Name = "UUID";
-            this.UUID.Size = new System.Drawing.Size(154, 340);
+            this.UUID.Size = new System.Drawing.Size(154, 338);
             this.UUID.TabIndex = 4;
             this.UUID.SelectedIndexChanged += new System.EventHandler(this.UUID_SelectedIndexChanged);
             // 
             // Player_Name
             // 
+            this.Player_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Player_Name.FormattingEnabled = true;
             this.Player_Name.ItemHeight = 14;
             this.Player_Name.Location = new System.Drawing.Point(603, 72);
             this.Player_Name.Name = "Player_Name";
-            this.Player_Name.Size = new System.Drawing.Size(159, 340);
+            this.Player_Name.Size = new System.Drawing.Size(159, 338);
             this.Player_Name.TabIndex = 5;
             this.Player_Name.SelectedIndexChanged += new System.EventHandler(this.Player_Name_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(133)))), ((int)(((byte)(190)))));
             this.label1.Location = new System.Drawing.Point(13, 421);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 14);
@@ -113,6 +123,7 @@ namespace TempName
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(133)))), ((int)(((byte)(190)))));
             this.label2.Location = new System.Drawing.Point(13, 439);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 14);
@@ -159,7 +170,7 @@ namespace TempName
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(133)))), ((int)(((byte)(181)))));
             this.menuStrip1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serverAndPlayerCheckerToolStripMenuItem});
@@ -178,30 +189,41 @@ namespace TempName
             // 
             // Exit
             // 
+            this.Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(133)))), ((int)(((byte)(181)))));
             this.Exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Exit.BackgroundImage")));
             this.Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Exit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(133)))), ((int)(((byte)(181)))));
+            this.Exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(174)))), ((int)(((byte)(206)))));
+            this.Exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(174)))), ((int)(((byte)(206)))));
+            this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Exit.Location = new System.Drawing.Point(908, 8);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(23, 23);
             this.Exit.TabIndex = 13;
-            this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.UseVisualStyleBackColor = false;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // Minimise
             // 
+            this.Minimise.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(133)))), ((int)(((byte)(181)))));
             this.Minimise.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Minimise.BackgroundImage")));
             this.Minimise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Minimise.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(133)))), ((int)(((byte)(181)))));
+            this.Minimise.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(174)))), ((int)(((byte)(206)))));
+            this.Minimise.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(174)))), ((int)(((byte)(206)))));
+            this.Minimise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Minimise.Location = new System.Drawing.Point(879, 8);
             this.Minimise.Name = "Minimise";
             this.Minimise.Size = new System.Drawing.Size(23, 23);
             this.Minimise.TabIndex = 14;
-            this.Minimise.UseVisualStyleBackColor = true;
+            this.Minimise.UseVisualStyleBackColor = false;
             this.Minimise.Click += new System.EventHandler(this.Minimise_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.ClientSize = new System.Drawing.Size(943, 469);
             this.Controls.Add(this.Minimise);
             this.Controls.Add(this.Exit);
@@ -218,7 +240,9 @@ namespace TempName
             this.Controls.Add(this.CheckServers);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
