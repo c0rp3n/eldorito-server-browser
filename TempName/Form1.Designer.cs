@@ -47,6 +47,7 @@ namespace TempName
             this.serverAndPlayerCheckerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Exit = new System.Windows.Forms.Button();
             this.Minimise = new System.Windows.Forms.Button();
+            this.Settings = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -200,6 +201,7 @@ namespace TempName
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(23, 23);
             this.Exit.TabIndex = 13;
+            this.Exit.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.Exit.UseVisualStyleBackColor = false;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -216,8 +218,25 @@ namespace TempName
             this.Minimise.Name = "Minimise";
             this.Minimise.Size = new System.Drawing.Size(23, 23);
             this.Minimise.TabIndex = 14;
+            this.Minimise.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.Minimise.UseVisualStyleBackColor = false;
             this.Minimise.Click += new System.EventHandler(this.Minimise_Click);
+            // 
+            // Settings
+            // 
+            this.Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(133)))), ((int)(((byte)(181)))));
+            this.Settings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(133)))), ((int)(((byte)(181)))));
+            this.Settings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(174)))), ((int)(((byte)(206)))));
+            this.Settings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(174)))), ((int)(((byte)(206)))));
+            this.Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Settings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.Settings.Location = new System.Drawing.Point(674, 429);
+            this.Settings.Name = "Settings";
+            this.Settings.Size = new System.Drawing.Size(121, 25);
+            this.Settings.TabIndex = 15;
+            this.Settings.Text = "Settings";
+            this.Settings.UseVisualStyleBackColor = false;
+            this.Settings.Click += new System.EventHandler(this.Settings_Click);
             // 
             // MainForm
             // 
@@ -225,6 +244,7 @@ namespace TempName
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.ClientSize = new System.Drawing.Size(943, 469);
+            this.Controls.Add(this.Settings);
             this.Controls.Add(this.Minimise);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.label6);
@@ -275,5 +295,6 @@ namespace TempName
         private System.Windows.Forms.ToolStripMenuItem serverAndPlayerCheckerToolStripMenuItem;
         private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.Button Minimise;
+        private System.Windows.Forms.Button Settings;
     }
 }
