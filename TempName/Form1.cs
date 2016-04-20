@@ -65,6 +65,11 @@ namespace TempName
 
             var text = new StringBuilder();
 
+            IP_Address.Items.Clear();
+            Server_Name.Items.Clear();
+            UUID.Items.Clear();
+            Player_Name.Items.Clear();
+
             try
             {
                 string ServerList_ = TempName.SettingsForm.wc.DownloadString(TempName.SettingsForm.MasterServer);
