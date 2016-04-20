@@ -199,6 +199,22 @@ namespace TempName
             label2.Text = ("Complete");
         }
 
+        private void Settings_Click(object sender, EventArgs e)
+        {
+            var form = Application.OpenForms.OfType<Settings_Form>().FirstOrDefault();
+            if (form != null)
+            {
+                form.Activate();
+            }
+            else
+            {
+                Settings_Form Form_Settings = new Settings_Form();
+                Form_Settings.StartPosition = FormStartPosition.Manual;
+                Form_Settings.Location = new Point(Location.X, Location.Y - (Form_Settings.Size.Height + 5));
+                Form_Settings.Show();
+            }
+        }
+
         private void Exit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -215,22 +231,6 @@ namespace TempName
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-            }
-        }
-
-        private void Settings_Click(object sender, EventArgs e)
-        {
-            var form = Application.OpenForms.OfType<Settings_Form>().FirstOrDefault();
-            if (form != null)
-            {
-                form.Activate();
-            }
-            else
-            {
-                Settings_Form Form_Settings = new Settings_Form();
-                Form_Settings.StartPosition = FormStartPosition.Manual;
-                Form_Settings.Location = new Point(Location.X, Location.Y - (Form_Settings.Size.Height + 5));
-                Form_Settings.Show();
             }
         }
     }
