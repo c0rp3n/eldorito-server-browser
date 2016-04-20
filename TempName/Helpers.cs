@@ -17,8 +17,8 @@ namespace TempName
             }
             Console.Clear();
 
-            if (Settings.TimeOut != 0)
-                for (int i = Settings.TimeOut * 1; i > 0; i--)
+            if (SettingsForm.TimeOut != 0)
+                for (int i = SettingsForm.TimeOut * 1; i > 0; i--)
                 {
                     Console.WriteLine("Waiting {0} seconds!", i);
                     Thread.Sleep(1000);
@@ -28,7 +28,7 @@ namespace TempName
 
         public static string GetMasterServer()
         {
-            string DewritoTEXT = Settings.wc.DownloadString("https://raw.githubusercontent.com/ElDewrito/ElDorito/master/dewrito.json");
+            string DewritoTEXT = SettingsForm.wc.DownloadString("https://raw.githubusercontent.com/ElDewrito/ElDorito/master/dewrito.json");
             dynamic DewritoJSON = JsonConvert.DeserializeObject(DewritoTEXT);
 
             foreach (dynamic masterServer in DewritoJSON.masterServers)
@@ -63,13 +63,13 @@ namespace TempName
     {
         public static void Log(string Input)
         {
-            if (Settings.IsUsingLog.Equals(true))
+            if (SettingsForm.IsUsingLog.Equals(true))
             {
                 var text = new StringBuilder();
 
-                if (File.Exists(Settings.Log))
+                if (File.Exists(SettingsForm.Log))
                 {
-                    foreach (string s in File.ReadAllLines(Settings.Log))
+                    foreach (string s in File.ReadAllLines(SettingsForm.Log))
                     {
                         text.AppendLine(s.ToString());
                     }
@@ -85,7 +85,7 @@ namespace TempName
                     text.AppendLine(Input);
                 }
 
-                using (var file = new StreamWriter(File.Create(Settings.Log)))
+                using (var file = new StreamWriter(File.Create(SettingsForm.Log)))
                 {
                     file.Write(text.ToString());
                 }
