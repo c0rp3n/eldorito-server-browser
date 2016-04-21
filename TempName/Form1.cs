@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace TempName
 {
@@ -42,11 +44,70 @@ namespace TempName
         private void IP_Address_SelectedIndexChanged(object sender, EventArgs e)
         {
             Server_Name.SelectedIndex = IP_Address.SelectedIndex;
+            Player_Count.SelectedIndex = IP_Address.SelectedIndex;
+            PlayerSelection();
         }
 
         private void Server_Name_SelectedIndexChanged(object sender, EventArgs e)
         {
             IP_Address.SelectedIndex = Server_Name.SelectedIndex;
+            Player_Count.SelectedIndex = Server_Name.SelectedIndex;
+            PlayerSelection();
+        }
+
+        private void Player_Count_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Server_Name.SelectedIndex = Player_Count.SelectedIndex;
+            IP_Address.SelectedIndex = Player_Count.SelectedIndex;
+            PlayerSelection();
+        }
+        
+        public List<string> UID_List = new List<string>();
+        public List<string> Players_List = new List<string>();
+
+        private void PlayerSelection()
+        {
+            if (Server_Name.SelectedIndex == 0)
+            {
+                UUID.Items.Clear();
+                Player_Name.Items.Clear();
+                foreach (var item in Players_List)
+                    Player_Name.Items.Add(item.ToString());
+                foreach (var item in UID_List)
+                    UUID.Items.Add(item.ToString());
+            }
+            else if (Convert.ToInt32(Player_Count.SelectedItem) == 0)
+            {
+                UUID.Items.Clear();
+                Player_Name.Items.Clear();
+            }
+            else
+            {
+                int count = Server_Name.SelectedIndex;
+                if (count > 0)
+                {
+                    int firstindex = 0;
+
+                    for (int i = 1; i < count; i++)
+                    {
+                        firstindex += Convert.ToInt32(Player_Count.Items[i]);
+                    }
+
+                    UUID.Items.Clear();
+                    Player_Name.Items.Clear();
+
+                    foreach (var item in Players_List.GetRange(firstindex, Convert.ToInt32(Player_Count.SelectedItem)))
+                        Player_Name.Items.Add(item.ToString());
+                    foreach (var item in UID_List.GetRange(firstindex, Convert.ToInt32(Player_Count.SelectedItem)))
+                        UUID.Items.Add(item.ToString());
+                }
+                else
+                {
+                    UUID.Items.Clear();
+                    Player_Name.Items.Clear();
+                }
+
+            }
         }
 
         private static void UpdateSettings()
@@ -63,12 +124,18 @@ namespace TempName
         {
             UpdateSettings();
 
-            var text = new StringBuilder();
+            var Log = new StringBuilder();
+            var players = new StringBuilder();
+            var uids = new StringBuilder();
 
             IP_Address.Items.Clear();
             Server_Name.Items.Clear();
             UUID.Items.Clear();
             Player_Name.Items.Clear();
+            Player_Count.Items.Clear();
+            Server_Name.Items.Add("All");
+            IP_Address.Items.Add("---");
+            Player_Count.Items.Add("---");
 
             try
             {
@@ -96,19 +163,35 @@ namespace TempName
                                 if (numPlayers.Equals(0))
                                 {
                                     label2.Text = (Errors.NoPlayersFoundMessage);
-                                    text.AppendLine(Errors.NoPlayersFoundMessage);
+                                    Log.AppendLine(Errors.NoPlayersFoundMessage);
+                                    Player_Count.Items.Add(numPlayers.ToString());
                                 }
                                 else if (HostJSON_.Contains("passworded"))
                                 {
                                     label2.Text = (Errors.PasswordServerMessage);
-                                    text.AppendLine(Errors.PasswordServerMessage);
+                                    Log.AppendLine(Errors.PasswordServerMessage);
+                                    Player_Count.Items.Add(numPlayers.ToString());
                                 }
                                 else
                                 {
                                     if (numPlayers.Equals(maxPlayers))
                                     {
-                                        label2.Text = (Errors.FullServerMessage);
-                                        text.AppendLine(Errors.FullServerMessage);
+                                        for (int i = 0; i < numPlayers; i++)
+                                        {
+                                            dynamic Player = PlayerList[i];
+
+                                            if (Player.name == null && Player.uid == null)
+                                            {
+                                                Player_Name.Items.Add(Errors.PlayerHasNoNameMessage);
+                                                UUID.Items.Add(Errors.PlayerHasNoUIDMessage);
+                                            }
+                                            else
+                                            {
+                                                this.Player_Name.Items.Add(Player.name);
+                                                this.UUID.Items.Add(Player.uid);
+                                            }
+                                        }
+                                        Player_Count.Items.Add(numPlayers.ToString());
                                     }
                                     else
                                     {
@@ -127,9 +210,10 @@ namespace TempName
                                                 this.UUID.Items.Add(Player.uid);
                                             }
                                         }
+                                        Player_Count.Items.Add(numPlayers.ToString());
                                     }
                                 }
-                                text.AppendLine(Environment.NewLine);
+                                Log.AppendLine(Environment.NewLine);
                             }
                         }
                         else
@@ -138,15 +222,35 @@ namespace TempName
                             Server_Name.Items.Add(ServerName);
 
                             if (numPlayers.Equals(0))
+                            {
                                 label2.Text = (Errors.NoPlayersFoundMessage);
+                                Player_Count.Items.Add(numPlayers.ToString());
+                            }
                             else if (HostJSON_.Contains("passworded"))
+                            {
                                 label2.Text = (Errors.PasswordServerMessage);
+                                Player_Count.Items.Add(numPlayers.ToString());
+                            }
                             else
                             {
                                 if (numPlayers.Equals(maxPlayers))
                                 {
-                                    label2.Text = (Errors.FullServerMessage);
-                                    text.AppendLine(Errors.FullServerMessage);
+                                    for (int i = 0; i < numPlayers; i++)
+                                    {
+                                        dynamic Player = PlayerList[i];
+
+                                        if (Player.name == null && Player.uid == null)
+                                        {
+                                            Player_Name.Items.Add(Errors.PlayerHasNoNameMessage);
+                                            UUID.Items.Add(Errors.PlayerHasNoUIDMessage);
+                                        }
+                                        else
+                                        {
+                                            this.Player_Name.Items.Add(Player.name);
+                                            this.UUID.Items.Add(Player.uid);
+                                        }
+                                    }
+                                    Player_Count.Items.Add(numPlayers.ToString());
                                 }
                                 else
                                 {
@@ -165,10 +269,11 @@ namespace TempName
                                             this.UUID.Items.Add(Player.uid);
                                         }
                                     }
+                                    Player_Count.Items.Add(numPlayers.ToString());
                                 }
                             }
                         }
-                        text.AppendLine(Environment.NewLine);
+                        Log.AppendLine(Environment.NewLine);
                     }
                     catch (Exception) // ex)
                     {
@@ -194,6 +299,28 @@ namespace TempName
                     case false:
                         label2.Text = (Errors.MasterServerNotConnetMessage);
                         break;
+                }
+            }
+            foreach (var item in Player_Name.Items)
+                players.AppendLine(item.ToString());
+            foreach (var item in UUID.Items)
+                uids.AppendLine(item.ToString());
+            string playerstr = players.ToString();
+            string uidstr = uids.ToString();
+            using (StringReader reader = new StringReader(playerstr))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    Players_List.Add(line);
+                }
+            }
+            using (StringReader reader = new StringReader(uidstr))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    UID_List.Add(line);
                 }
             }
             label2.Text = ("Complete");
